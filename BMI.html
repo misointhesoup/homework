@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="whole">
+    <h3>BMI測量</h3>
+    <div class="BMI">
+      <div class="border">
+        <div class="data">
+          <p>身高</p><input type="number" class="height" min="0" placeholder="  小數點不要無條件進">
+          <p>體重</p><input type="number" class="weight" min="0" placeholder="  誠實為上，不要謊報">
+        </div>
+        <div class="parper">
+          <p>你的BMI指數</p>
+          <div class="BMIfin"></div>
+          <div class="statusA"></div>
+        </div>
+        <div class="btn">
+          <button type="button" class="count" value="現實">現實</button>
+          <button type="button" class="clear" value="clear">重算</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script>
+    var height = document.querySelector('.height');
+    var weight = document.querySelector('.weight');
+    var count = document.querySelector('.count');
+    var clear = document.querySelector('.clear');
+    var BMIfin = document.querySelector('.BMIfin');
+    var statusA = document.querySelector('.statusA');
+
+    count.addEventListener('click', function ca() {
+      var h = parseInt(height.value) / 100;
+      var w = parseInt(weight.value);
+      var bmiA = w / (h * h);
+
+      bmiA = bmiA.toFixed(1);
+      BMIfin.textContent = bmiA;
+
+      var a = bmiA;
+
+      if (a < 18.5) {
+        statusA.textContent = "太瘦了，請多吃一點好嗎？想去博物館當木乃伊是不是"
+      } else if (a >= 18.5 && a < 24) {
+        statusA.textContent = "沒什麼好講的，就是健康"
+      } else if (a >= 24 && a < 27) {
+        statusA.textContent = "有點危險了，停下嘴巴開始運動。徒步環島了啦"
+      } else if (a >= 27 && a < 30) {
+        statusA.textContent = "戒糖分！三高都在路上了還吃屁哦"
+      } else if (a >= 30 && a < 35) {
+        statusA.textContent = "三高在門口敲門了，請google:韓星減肥餐"
+      } else if (a >= 37) {
+        statusA.textContent = "直接找專業醫生幫你了吧"
+      }
+    });
+
+    clear.addEventListener('click', function clearbmi() {
+      document.querySelector('.height').value = '';
+      document.querySelector('.weight').value = '';
+      BMIfin.innerHTML = '';
+      statusA.innerHTML = '';
+    })
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
+
+    .whole {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+    }
+
+    h3 {
+      color: white;
+    }
+
+    .border {
+      height: 60%;
+      width: 40vw;
+      background-color: rgba(0, 49, 83, 0.7);
+      border: 2px lightblue solid;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: columm;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .data {
+      height: 100px;
+      width: 50px;
+      color: lightblue;
+      position: relative;
+      left: 35px;
+    }
+
+    input {
+      border: 2px ghostwhite solid;
+      border-radius: 5px;
+    }
+
+    input[type="number"]:focus {
+      border: 2px solid #659ab2;
+    }
+
+    .parper {
+      height: 500px;
+      width: 200px;
+      color: lightblue;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+      position: relative;
+      right: -160px;
+      top: 23%;
+    }
+
+    .BMIfin {
+      height: 70px;
+      width: 70px;
+      background-color: white;
+      border-radius: 50%;
+      margin: 10% 0 3% 50%;
+      text-align: center;
+      line-height: 70px;
+      font-size: 24px;
+    }
+
+    .statusA {
+      margin: 10% 0 0 0;
+    }
+
+    .btn {
+      align-self: flex-end;
+      position: relative;
+      left: -37%;
+      bottom: 7%;
+    }
+
+    button {
+      width: 45px;
+      border: none;
+      border-radius: 0 5px 0 5px;
+    }
+
+    button[type="button"]:focus {
+      border: 2px #659ab2 solid;
+    }
+  </style>
+</body>
+
+</html>
