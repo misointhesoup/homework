@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="whole">
+
+    <div class="country">
+      <p>美元&nbsp;<input type="number" min=0 class="US1" id="US1"></p>
+    </div>
+    <button type="button" class="trans">轉⇅換</button>
+    <p>台幣&nbsp;<input type="number" min=o class="TWD1" id="TWD1"></p>
+    <button type="button" class="clear">清除</button>
+  </div>
+  </div>
+
+  <script>
+    var US1 = document.querySelector('.US1');
+    var TWD1 = document.querySelector('.TWD1');
+    var rate = document.querySelector('.rate');
+    var trans = document.querySelector('.trans');
+    var clear = document.querySelector('.clear');
+
+    trans.addEventListener('click', function go() {
+      var re1;
+      var re2;
+      if (re1 = (US1.value) * 28) {
+        document.getElementById('TWD1').value = re1
+      }
+      else if (re2 = parseInt(TWD1.value) / 28) {
+        re2 = re2.toFixed(2);
+        document.getElementById('US1').value = re2
+      }
+    })
+    clear.addEventListener('click', function no() {
+      document.querySelector('.US1').value = '';
+      document.querySelector('.TWD1').value = '';
+    })
+
+// 輸入美元後，轉換成台幣，但如果沒有消掉就直接在台幣改數字要轉成美元，還是會依照美元是多少就改台幣的數額
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
+
+    .whole {
+      height: 100vh;
+      width: 100vw;
+      background-color: lightblue;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      margin: 1%;
+      width: 50px;
+    }
+
+    button,
+    input {
+      border-radius: 5px;
+      border: 2px ghostwhite solid;
+    }
+
+    button:focus,
+    input:focus {
+      border: 2px solid #659ab2;
+    }
+  </style>
+</body>
+
+</html>
