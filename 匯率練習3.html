@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <div class="whole">
+    <div class="yo">
+      <p>台幣：<input type="text" id="money" class="money" placeholder="哇賊"></p>
+      <p>比特幣：<span class="BTC" id="BTC"></span></p>
+      <p>坦尚尼亞先令：<span class="TZS" id="TZS"></span></p>
+      <p>尼泊爾盧比：<span class="NPR" id="NPR"></span></p>
+      <p>克羅埃西亞庫納：<span class="HRK" id="HRK"></span></p>
+      <p>百慕達元：<span class="BMD" id="BMD"></span></p>
+    </div>
+  </div>
+
+  <script>
+    var money = document.querySelector('.money');
+    var BTC = document.querySelector('.BTC');
+    var TZS = document.querySelector('.TZS');
+    var NPR = document.querySelector('.NPR');
+    var HRK = document.querySelector('.HRK');
+    var BMD = document.querySelector('.BMD');
+
+    money.addEventListener('keyup', function moneyhaha() {
+      var moneyT = document.getElementById('money').value;
+      BTC.innerHTML = (moneyT / 1491838.88).toFixed(1) + "元";
+      TZS.innerHTML = (moneyT / 0.0120).toFixed(1) + "元";
+      NPR.innerHTML = (moneyT / 0.2412).toFixed(1) + "元";
+      HRK.innerHTML = (moneyT / 4.4729).toFixed(1) + "元";
+      BMD.innerHTML = (moneyT / 27.905).toFixed(1) + "元";
+    })
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
+
+    .whole {
+      height: 100vh;
+      weight: 100vw;
+      background-color: #81C0C0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      width: 100px;
+      border: ghostwhite 2px solid;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    p {
+      margin: 5px;
+      color: white;
+    }
+
+    span {
+      color: #FFECEC;
+    }
+  </style>
+
+</body>
+
+</html>
